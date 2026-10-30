@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clip2MD</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="header">
+        <div class="brand" aria-label="Clip2MD">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M9 6.5h10.5L24 11v14.5H9z" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M19 6.5V11h5M12.5 16h8M12.5 20h6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M6 10v15"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                opacity=".55"
+              />
+            </svg>
+          </span>
+          <span><strong>Clip2MD</strong><small id="tagline"></small></span>
+        </div>
+        <div class="header-actions">
+          <button
+            class="icon-button language-button"
+            id="language-button"
+            type="button"
+            aria-label="Language"
+          >
+            EN
+          </button>
+          <button
+            class="icon-button"
+            id="settings-button"
+            type="button"
+            aria-label="Settings"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="settings-panel" id="settings-panel" hidden>
+        <div class="section-heading">
+          <h2 id="settings-title"></h2>
+          <span>v0.1.0</span>
+        </div>
+        <label class="setting-row" for="include-title">
+          <span
+            ><strong id="include-title-label"></strong><small id="include-title-hint"></small
+          ></span>
+          <input id="include-title" type="checkbox" role="switch" />
+        </label>
+        <label class="setting-row" for="include-source">
+          <span
+            ><strong id="include-source-label"></strong><small id="include-source-hint"></small
+          ></span>
+          <input id="include-source" type="checkbox" role="switch" />
+        </label>
+      </section>
+
+      <section class="content">
+        <div class="status-row">
+          <span class="status" id="status"
+            ><span class="status-dot"></span><span id="status-text"></span
+          ></span>
+          <button class="text-button" id="retry-button" type="button" hidden></button>
+        </div>
+
+        <div class="error-banner" id="error-banner" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 8v5M12 16.5v.5M10.3 3.9 2.7 17a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div>
+            <strong id="error-title"></strong>
+            <p id="error-message"></p>
+          </div>
+        </div>
+
+        <div class="title-field">
+          <label id="title-label" for="page-title"></label>
+          <input id="page-title" type="text" maxlength="300" autocomplete="off" />
+          <div class="metadata"><span id="site-name"></span><span id="article-meta"></span></div>
+        </div>
+
+        <div class="editor-field">
+          <div class="editor-heading">
+            <label id="editor-label" for="markdown-editor"></label>
+            <span id="character-count"></span>
+          </div>
+          <div class="editor-wrap">
+            <div class="editor-gutter" aria-hidden="true">MD</div>
+            <textarea id="markdown-editor" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p><span class="privacy-dot"></span><span id="local-only"></span></p>
+        <div class="actions">
+          <button class="button button-secondary" id="copy-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect
+                x="8"
+                y="8"
+                width="11"
+                height="12"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <path
+                d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span id="copy-label"></span>
+          </button>
+          <button class="button button-primary" id="download-button" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span id="download-label"></span>
+          </button>
+        </div>
+      </footer>
+      <div class="toast" id="toast" role="status" hidden></div>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
