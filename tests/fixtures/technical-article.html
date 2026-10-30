@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Testing a Markdown Pipeline</title>
+  </head>
+  <body>
+    <article>
+      <h1>Testing a Markdown Pipeline</h1>
+      <p>
+        A conversion pipeline needs examples that stay stable over time. Fixed fixtures let
+        contributors reproduce parsing bugs without relying on a remote page whose markup may change
+        tomorrow.
+      </p>
+      <h2>A small parser</h2>
+      <p>
+        The following function trims a document title and supplies a fallback. The code fence should
+        preserve both the language and every line break.
+      </p>
+      <pre><code class="language-typescript">export function cleanTitle(value: string): string {
+  const title = value.trim();
+  return title || 'Untitled';
+}
+
+console.log(cleanTitle('  Clip2MD  '));</code></pre>
+      <p>
+        Tests should also cover inline code such as <code>npm run build</code>, nested lists,
+        quotes, and documents whose optional metadata is absent.
+      </p>
+      <ul>
+        <li>
+          Conversion
+          <ul>
+            <li>Headings</li>
+            <li>Code fences</li>
+          </ul>
+        </li>
+        <li>Downloads</li>
+      </ul>
+      <p>
+        With a focused suite, a failed assertion points to a real regression instead of an
+        unexpected edit made by a website operator.
+      </p>
+    </article>
+  </body>
+</html>
