@@ -1,0 +1,38 @@
+name: Bug report / 问题报告
+description: Report incorrect extraction or extension behavior / 报告提取或扩展行为问题
+title: '[Bug] '
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Clip2MD version / 版本
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and OS / 浏览器与系统
+      placeholder: Edge 142 / Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      description: Use a public or de-identified example. Do not include private data or tokens. / 请使用公开或去标识化样本，不要包含私人数据或 Token。
+      placeholder: 1. Open...\n2. Click Clip2MD...\n3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior / 期望与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Relevant Markdown or error / 相关 Markdown 或错误
+      render: text

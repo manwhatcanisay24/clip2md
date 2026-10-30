@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report / 安全报告
+    url: https://github.com/manwhatcanisay24/clip2md/security/advisories/new
+    about: Report vulnerabilities privately / 私密报告安全漏洞
+  - name: Documentation / 使用文档
+    url: https://github.com/manwhatcanisay24/clip2md/blob/main/README.zh-CN.md
+    about: Read installation and usage instructions / 查看安装与使用说明
